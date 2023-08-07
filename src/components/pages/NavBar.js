@@ -69,6 +69,13 @@ const Navbar = () => {
 
             </li>
 
+            <li className='nav-item'>
+            <a className="nav-link pe-3 me-4 fw-bold active" aria-current="page" href="/authors" >
+                  AUTHORS
+                </a>
+
+            </li>
+
         </ul>
 
     </nav>

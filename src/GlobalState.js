@@ -1,6 +1,6 @@
 import { createContext } from "react";
 import AdminApi from "./api/AdminApi";
-
+import AuthorsApi from "./api/AuthorsApi";
 
 export const GlobalState = createContext()
 
@@ -11,6 +11,7 @@ export const DataProvider = ({children}) => {
     const state = {
         token: token,
         adminApi: AdminApi(),
+        authorsApi: AuthorsApi()
 
     }
 
