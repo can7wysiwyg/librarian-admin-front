@@ -6,13 +6,49 @@ import { GlobalState } from '../../GlobalState';
 
 const Navbar = () => {
    const state = useContext(GlobalState)
-//    const token = state.token
    const[isLogged] = state.adminApi.isLogged
    const[isAdmin] = state.adminApi.isAdmin
    const[onPending] = state.adminApi.onPending
    const[onSuspension] = state.adminApi.onSuspension
+   const[isSuperLogged] = state.superAdminApi.isSuperLogged
+   const[isSuperAdmin] = state.superAdminApi.isSuperAdmin
+   const[isSuperPending] = state.superAdminApi.isSuperPending
    
-   
+
+
+   const logoutSuperAdmin = () => {
+
+    localStorage.removeItem("supertoken")
+    window.location.href = "/"
+
+
+   }
+
+   const loggedSuperAdminRouter = () => {
+
+    return (
+      <>
+      
+      <nav>
+          <ul className='navbar-nav ms-auto mb-2 mb-lg-0'>
+              <li className='nav-item'>
+              <a className="nav-link pe-3 me-4 fw-bold active" aria-current="page" href="/" onClick={logoutSuperAdmin}>
+                    logout
+                  </a>
+  
+              </li>
+  
+          </ul>
+  
+      </nav>
+      
+      
+      
+       </> )
+  
+
+
+   }
 
    const logoutAdmin = () => {
     localStorage.removeItem("token")
@@ -44,6 +80,34 @@ const Navbar = () => {
     
      </> )
 
+
+
+   }
+
+
+   const superRouter = () => {
+
+    return(<>
+
+      <nav>
+              <ul className='navbar-nav ms-auto mb-2 mb-lg-0'>
+                  <li className='nav-item'>
+                  <a className="nav-link pe-3 me-4 fw-bold active" aria-current="page" href="/make_admin" >
+                        MAKE ADMIN
+                      </a>
+      
+                  </li>
+      
+                  
+              </ul>
+      
+          </nav>
+          
+          
+          
+          
+          </>)
+      
 
 
    }
@@ -140,10 +204,14 @@ return(<>
    
     } else if(onSuspension) {
         return suspensionRouter()
-    } 
+    } else if(isSuperAdmin) {
+      return superRouter()
+    }
 
 
    }
+
+   
    
   return (
     <div className="container">
@@ -185,7 +253,16 @@ return(<>
                   CONTACT
                 </a>
               </li>
-              {isLogged ? (
+
+              <li className='nav-item'>   
+<a className='nav-link pe-3 me-4 fw-bold' href="/login">LOGIN</a>
+
+
+</li>
+
+
+              
+             {/* {isLogged ? (
                 loggedRouter()
               ) : (
 <li className='nav-item'>   
@@ -194,7 +271,19 @@ return(<>
 
 </li>
 
+                )  }  
+
+{isSuperLogged ? (
+                loggedSuperAdminRouter()
+              ) : (
+<li className='nav-item'>   
+<a className='nav-link pe-3 me-4 fw-bold' href="/login">LOGIN</a>
+
+
+</li>
+
               ) }
+ */}
 
             </ul>
             <ul className="navbar-nav icons ms-auto mb-2 mb-lg-0">
