@@ -10,7 +10,8 @@ function AuthorsApi() {
 
             const res = await axios.get('/author/show_authors')
 
-            setAuthors(res.data.results)
+            setAuthors(res.data.authors)
+            
 
 
         }

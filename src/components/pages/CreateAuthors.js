@@ -26,7 +26,9 @@ function CreateAuthors() {
             }
         })
 
-        console.log(res);
+        alert(res.data.msg);
+
+        window.location.href = "/manage_authors"
 
     }
 
@@ -74,6 +76,7 @@ function CreateAuthors() {
                 value={values.authorShortBio}
                 onChange={handleChange}
                 placeholder="A short summary of the author"
+                required
               />
 
 
@@ -83,7 +86,7 @@ function CreateAuthors() {
 
 
 
-              <Button>Create Author</Button>
+              <Button type="submit">Create Author</Button>
               </Form>
               </Col>
               </Row>
