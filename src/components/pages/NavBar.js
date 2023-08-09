@@ -12,7 +12,7 @@ const Navbar = () => {
    const[onSuspension] = state.adminApi.onSuspension
    const[isSuperLogged] = state.superAdminApi.isSuperLogged
    const[isSuperAdmin] = state.superAdminApi.isSuperAdmin
-   const[isSuperPending] = state.superAdminApi.isSuperPending
+  //  const[isSuperPending] = state.superAdminApi.isSuperPending
    
 
 
@@ -24,31 +24,6 @@ const Navbar = () => {
 
    }
 
-   const loggedSuperAdminRouter = () => {
-
-    return (
-      <>
-      
-      <nav>
-          <ul className='navbar-nav ms-auto mb-2 mb-lg-0'>
-              <li className='nav-item'>
-              <a className="nav-link pe-3 me-4 fw-bold active" aria-current="page" href="/" onClick={logoutSuperAdmin}>
-                    logout
-                  </a>
-  
-              </li>
-  
-          </ul>
-  
-      </nav>
-      
-      
-      
-       </> )
-  
-
-
-   }
 
    const logoutAdmin = () => {
     localStorage.removeItem("token")
@@ -57,32 +32,6 @@ const Navbar = () => {
    }
 
 
-
-   const loggedRouter = () => {
-     
-   return (
-    <>
-    
-    <nav>
-        <ul className='navbar-nav ms-auto mb-2 mb-lg-0'>
-            <li className='nav-item'>
-            <a className="nav-link pe-3 me-4 fw-bold active" aria-current="page" href="/" onClick={logoutAdmin}>
-                  logout
-                </a>
-
-            </li>
-
-        </ul>
-
-    </nav>
-    
-    
-    
-     </> )
-
-
-
-   }
 
 
    const superRouter = () => {
@@ -97,6 +46,12 @@ const Navbar = () => {
                       </a>
       
                   </li>
+                  <li className='nav-item'>
+              <a className="nav-link pe-3 me-4 fw-bold active" aria-current="page" href="/" onClick={logoutSuperAdmin}>
+                    LOGOUT
+                  </a>
+                  </li>
+  
       
                   
               </ul>
@@ -139,6 +94,12 @@ const Navbar = () => {
                 </a>
 
             </li>
+            <li className='nav-item'>
+            <a className="nav-link pe-3 me-4 fw-bold active" aria-current="page" href="/" onClick={logoutAdmin}>
+                  LOGOUT
+                </a>
+
+            </li>
 
         </ul>
 
@@ -163,6 +124,14 @@ return(<>
 
             </li>
 
+            <li className='nav-item'>
+            <a className="nav-link pe-3 me-4 fw-bold active" aria-current="page" href="/" onClick={logoutAdmin}>
+                  LOGOUT
+                </a>
+
+            </li>
+
+
         </ul>
 
     </nav>
@@ -182,6 +151,14 @@ return(<>
                 </a>
 
             </li>
+
+            <li className='nav-item'>
+            <a className="nav-link pe-3 me-4 fw-bold active" aria-current="page" href="/" onClick={logoutAdmin}>
+                  LOGOUT
+                </a>
+
+            </li>
+
 
         </ul>
 
@@ -254,11 +231,11 @@ return(<>
                 </a>
               </li>
 
-              <li className='nav-item'>   
+      { isSuperLogged === true || isLogged === true ? "" :        <li className='nav-item'>   
 <a className='nav-link pe-3 me-4 fw-bold' href="/login">LOGIN</a>
 
 
-</li>
+</li> }
 
 
               

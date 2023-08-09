@@ -76,6 +76,7 @@ function UploadBooks() {
     }
    } )
 
+  
 alert(res.data.msg)
 
 window.location.href = "/manage_books"
@@ -107,7 +108,7 @@ window.location.href = "/manage_books"
               >
               
                 {searchedAuthors.map((author) => (
-                  <option value={author._id} key={author._id}>
+                  <option value={author.authorName} key={author._id}>
                     {author.authorName}
                   </option>
                 ))}

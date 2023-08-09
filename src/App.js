@@ -6,6 +6,7 @@ import CreateAuthors from "./components/pages/CreateAuthors";
 import BooksPanel from "./components/pages/BooksPanel";
 import UploadBooks from "./components/pages/UploadBooks";
 import SuperAdminLogin from "./components/pages/SuperAdminLogin";
+import ManageBooks from "./components/pages/ManageBooks";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/books_panel" element={<BooksPanel />} />
         <Route path="/upload_books" element={<UploadBooks />} />
         <Route path="/super_login" element={<SuperAdminLogin />} />
+        <Route path="/manage_books" element={<ManageBooks />} />
         
         
       </Routes>
