@@ -9,6 +9,7 @@ function CreateAuthors() {
     const token = state.token;
      
     const[values, setValues] = useState({authorName: "", authorCountry: "", authorShortBio: "" })
+    const[authorImage, setAuthorImage] = useState(false)
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -17,10 +18,23 @@ function CreateAuthors() {
 
     }
 
+    const handleAuthorImageUpload = (event) => {
+      const file = event.target.files[0];
+      setAuthorImage(file);
+    };
+  
+
     const handleSubmit = async(event) => {
         event.preventDefault()
 
-        const res = await axios.post('/author/create_author', {...values}, {
+        let formData = new FormData() 
+
+        formData.append('authorImage', authorImage)
+        formData.append('authorName', values.authorName)
+        formData.append('authorCountry', values.authorCountry)
+        formData.append('authorShortBio', values.authorShortBio)
+
+        const res = await axios.post('/author/create_author', formData, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -41,7 +55,20 @@ function CreateAuthors() {
         <Row className="justify-content-md-center">
           <Col xs={12} md={6}>
       
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} encType="multipart/form-data">
+
+
+            <Form.Group className="mb-3" controlId="formBasicBookImage">
+              <Form.Label>Upload Author Image</Form.Label>
+              <Form.Control
+                type="file"
+                onChange={handleAuthorImageUpload}
+                required
+                 accept=".jpg"
+              />
+            </Form.Group>
+
+
               <Form.Group className="mb-3" controlId="formBasicAuthorName">
                 
                 <Form.Control
@@ -54,6 +81,8 @@ function CreateAuthors() {
                   required
                 />
               </Form.Group>
+
+              
 
               <Form.Group className="mb-3" controlId="formBasicAuthorCountry">
                 

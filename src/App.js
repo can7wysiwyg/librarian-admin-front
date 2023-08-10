@@ -9,6 +9,7 @@ import SuperAdminLogin from "./components/pages/SuperAdminLogin";
 import ManageBooks from "./components/pages/ManageBooks";
 import BookSingle from "./components/pages/BookSingle";
 import ShowAuthor from "./components/pages/ShowAuthor";
+import AuthorBooks from "./components/pages/AuthorBooks";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/manage_books" element={<ManageBooks />} />
         <Route path="/book_single/:id" element={<BookSingle />} />
         <Route path="/show_author/:id" element={<ShowAuthor />} />
+        <Route path="/author_books/:id" element={<AuthorBooks />} />
         
         
       </Routes>

@@ -52,8 +52,7 @@ function UploadBooks() {
         setBookFile(file);
       };
 
-      console.log(bookAuthor);
-
+      
       const handleSubmit = async(event) => {
         event.preventDefault();
 
