@@ -49,8 +49,7 @@ function BookSingle() {
             >
               {newBook.bookAuthor}
             </a>
-            {/* <p>Author: {writer?.AuthorName}</p> */}
-            {/* <p>Genre: {genres.bookGenre} </p> */}
+            
             <p>Description: {newBook.bookDescription}</p>
             <p>Released On: {moment(newBook.bookReleaseDate).format("MMM D YYYY")}</p>
     
