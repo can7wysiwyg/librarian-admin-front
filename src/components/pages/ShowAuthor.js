@@ -22,7 +22,7 @@ function ShowAuthor() {
    useEffect(() => {
     if(id) {
         authors.forEach((author) => {
-            if(author.authorName === id) setNewAuthor(author)
+            if(author._id === id) setNewAuthor(author)
         })
     }
 
@@ -45,7 +45,7 @@ function ShowAuthor() {
             <AuthorBio newAuthor={newAuthor} />
             </p>
           <button  className="btn btn-warning" onClick={() => setShowModal(true)} style={{marginRight: "1.5rem"}}>EDIT</button>
-          <a href={`/author_books/${newAuthor.authorName}`} className="card-link">AUTHOR'S BOOKS</a>
+          <a href={`/author_books/${newAuthor._id}`} className="card-link">AUTHOR'S BOOKS</a>
         </div>
       </div>
     </div>

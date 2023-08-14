@@ -2,39 +2,39 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { GlobalState } from "../../GlobalState";
+import { useParams } from "react-router-dom";
 
 
 function UploadBooks() {
+ const {id} = useParams()
     const state = useContext(GlobalState)
     const token = state.token;
     const[authors] = state.authorsApi.authors
     const[genres] = state.genresApi.genres
-    const[values, setValues] = useState({bookTitle: "", bookISBN: "", bookGenre: "", bookReleaseDate: "",  bookDescription: ""})
+    const[values, setValues] = useState({bookAuthor: id, bookTitle: "", bookISBN: "", bookGenre: "", bookReleaseDate: "",  bookDescription: ""})
     const[bookImage, setBookImage] = useState(false)
     const[bookFile, setBookFile] = useState(false)
-    const [searchedAuthors, setSearchedAuthors] = useState([]);
-    const [searchQuery, setSearchQuery] = useState("");
-    const [bookAuthor, setSelectedAuthor] = useState("");
-  
-    
-    const handleSearchChange = (event) => {
-      setSearchQuery(event.target.value);
-    };
-  
-    
-    const handleAuthorSelect = (event) => {
-      setSelectedAuthor(event.target.value);
-    };
-  
+    const[person, setPerson] = useState({})
+
     useEffect(() => {
+
+      if(id) {
+        authors.forEach((persona) => {
+  
+          if(persona._id === id) setPerson(persona)
+  
+  
+        })
+      }
+  
+  
+    }, [id, authors])
+  
+  
     
-      const filteredAuthors = authors.filter((author) =>
-        author.authorName.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-      setSearchedAuthors(filteredAuthors);
-    }, [searchQuery, authors]);
-  
-  
+    
+    
+    
     const handleChange = (event) => {
         const {name, value} = event.target
 
@@ -58,7 +58,7 @@ function UploadBooks() {
 
     const formData = new FormData();
 
-   formData.append('bookAuthor', bookAuthor)
+   formData.append('bookAuthor', values.bookAuthor)
    formData.append('bookDescription', values.bookDescription)
    formData.append('bookGenre', values.bookGenre)
    formData.append('bookISBN', values.bookISBN)
@@ -76,44 +76,26 @@ function UploadBooks() {
    } )
 
   
-alert(res.data.msg)
+alert(res.data.msg) 
 
 window.location.href = "/manage_books"
+
+
  
 
 
-      }
+  }
     
 
-
-
+ 
     return(<>
-    <Container style={{ marginTop: "3rem" }}>
+    <Container style={{  fontFamily: "sans-serif" }}>
+    <h4 style={{textAlign: "center", marginBottom: "1rem", color: "red", fontStyle: "cursive"}}>Uploading A Book By {person.authorName}</h4>
       <Row className="justify-content-md-center">
         <Col xs={12} md={6}>
+        
           <Form onSubmit={handleSubmit} encType="multipart/form-data">
-            <Form.Group className="mb-3" controlId="formBasicBookAuthor">
-              <Form.Control
-                type="text"
-                placeholder="Search authors..."
-                value={searchQuery}
-                onChange={handleSearchChange}
-              />
-              <Form.Select
-                name="bookAuthor"
-                value={bookAuthor}
-                onChange={handleAuthorSelect}
-                required
-              >
-              
-                {searchedAuthors.map((author) => (
-                  <option value={author.authorName} key={author._id}>
-                    {author.authorName}
-                  </option>
-                ))}
-              </Form.Select>
-            </Form.Group>
-
+            
             <Form.Group className="mb-3" controlId="formBasicBookImage">
               <Form.Label>Upload book image</Form.Label>
               <Form.Control

@@ -1,4 +1,4 @@
-import { useContext,  useState } from "react"
+import { useContext,  useEffect,  useState } from "react"
 import { GlobalState } from "../../GlobalState"
 import { Table, Button, OverlayTrigger, Tooltip, Modal, Form } from 'react-bootstrap';
 import axios from "axios";
@@ -64,8 +64,7 @@ function ManageBooks() {
               <td> <a href={`/book_single/${book._id}`}> {book.bookTitle} </a></td>
               <td>
            
-           {book.bookAuthor}
-
+           <AuthorNames bookWriter={book.bookAuthor} />
               </td>
               <td>
                 <Buttons book={book} />
@@ -180,6 +179,31 @@ const Buttons = ({book}) => {
 
     </>)
 }
+
+const AuthorNames = ({ bookWriter }) => {
+  const state = useContext(GlobalState);
+  const [authors] = state.authorsApi.authors;
+  const [writers, setWriters] = useState(""); 
+
+  useEffect(() => {
+    if (bookWriter) {
+      const authorFound = authors.find((author) => author._id === bookWriter);
+      if (authorFound) {
+        setWriters(authorFound);
+      }
+    }
+  }, [bookWriter, authors]);
+
+
+
+  return (
+    <>
+      {writers.authorName}
+    </>
+  );
+};
+
+
 
 
 

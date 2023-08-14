@@ -1,7 +1,8 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import moment from "moment/moment"
+import { GlobalState } from "../../GlobalState"
 
 function AuthorBooks() {
     const {id} =  useParams()
@@ -50,8 +51,8 @@ function AuthorBooks() {
 <div className="row" style={{ marginBottom: "2rem" }}>
         {currentBooks.map((book) => (
           <div className="col-md-4 mb-4" key={book._id}>
-            <div className="card h-70 shadow-sm">
-                <p className="text-center" > {book.bookAuthor}</p>
+            <div className="card h-50 shadow-sm">
+                <a className="text-center" href={`/show_author/${book.bookAuthor}`} > <AuthorName bookWriter={book.bookAuthor} /></a>
               <img
                 src={book.bookImage}
                 alt={book.bookTitle}
@@ -141,6 +142,34 @@ const BookDescription = ({book}) => {
     
     
     </>)
+}
+
+
+const AuthorName = ({bookWriter}) => {
+ const state = useContext(GlobalState)
+  const [authors] = state.authorsApi.authors;
+  const[item, setItem] = useState({})
+  
+  useEffect(() => {
+
+    if(bookWriter) {
+      authors.forEach((author) => {
+        if(author._id === bookWriter) setItem(author)
+      })
+    }
+
+  }, [bookWriter, authors])
+
+
+  return(<>
+
+  {
+    item.authorName
+  }
+  
+  
+  
+  </>)
 }
 
 export default AuthorBooks

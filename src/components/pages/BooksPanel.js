@@ -7,7 +7,7 @@ function BooksPanel() {
         <div className="col-md-4">
           <div className="card">
             <div className="card-body">
-              <a href="/upload_books" className="card-title">UPLOAD BOOKS</a>
+              <a href="/select_author" className="card-title">UPLOAD BOOKS</a>
               <p className="card-text">Upload Books To The Site</p>
             </div>
           </div>

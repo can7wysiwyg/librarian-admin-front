@@ -15,6 +15,7 @@ import UpdateAuthorBio from "./components/pages/UpdateAuthorBio";
 import UpdateAuthorName from "./components/pages/UpdateAuthorName";
 import UpdateAuthorCountry from "./components/pages/UpdateAuthorCountry";
 import AuthorMore from "./components/pages/AuthorMore";
+import SelectAuthor from "./components/pages/SelectAuthor";
 
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
         <Route path="/authors" element={<Authors />} />
         <Route path="/create_authors" element={<CreateAuthors />} />
         <Route path="/books_panel" element={<BooksPanel />} />
-        <Route path="/upload_books" element={<UploadBooks />} />
+        <Route path="/upload_books/:id" element={<UploadBooks />} />
         <Route path="/super_login" element={<SuperAdminLogin />} />
         <Route path="/manage_books" element={<ManageBooks />} />
         <Route path="/book_single/:id" element={<BookSingle />} />
@@ -40,6 +41,7 @@ function App() {
         <Route path="/update_name/:id" element={<UpdateAuthorName />} />
         <Route path="/update_country/:id" element={<UpdateAuthorCountry />} />
         <Route path="/author_more/:id" element={<AuthorMore />} />
+        <Route path="/select_author" element={<SelectAuthor />} />
 
         
         

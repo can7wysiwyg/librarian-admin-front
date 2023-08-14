@@ -1,7 +1,6 @@
-import { useLocation, useParams } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 
 function AuthorMore() {
-    const{id} = useParams()
     const location = useLocation()
 
     
