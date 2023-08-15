@@ -6,9 +6,24 @@ import { GlobalState } from "../../GlobalState"
 
 function AuthorBooks() {
     const {id} =  useParams()
+   const state = useContext(GlobalState)
+   const[authors] = state.authorsApi.authors
+   const[someName, setSomeName] = useState({})
   const[results, setResults] = useState([])
   const [currentPage, setCurrentPage] = useState(1);
+
   const itemsPerPage = 8;
+
+
+  useEffect(() => {
+
+    if(id) {
+      authors?.forEach((author) => {
+        if(author._id === id) setSomeName(author)
+      })
+    }
+
+  }, [id, authors])
 
   useEffect(() => {
 
@@ -42,7 +57,15 @@ function AuthorBooks() {
   };
 
 
+if(results.length === 0) {
+  return(<div>
 
+    <h1>I am sure this message only displays when there are no books of <span style={{color: "red"}}> {someName.authorName} </span>  in the  database</h1>
+    <h2>but if you know otherwise, it's probably the fact that the network is slow...</h2>
+  
+  
+  </div>)
+}
   
   
 

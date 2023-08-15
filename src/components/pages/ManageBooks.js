@@ -64,7 +64,7 @@ function ManageBooks() {
               <td> <a href={`/book_single/${book._id}`}> {book.bookTitle} </a></td>
               <td>
            
-           <AuthorNames bookWriter={book.bookAuthor} />
+         <a href={`/show_author/${book.bookAuthor}`}>  <AuthorNames bookWriter={book.bookAuthor} /> </a>
               </td>
               <td>
                 <Buttons book={book} />

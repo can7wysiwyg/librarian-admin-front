@@ -16,6 +16,7 @@ import UpdateAuthorName from "./components/pages/UpdateAuthorName";
 import UpdateAuthorCountry from "./components/pages/UpdateAuthorCountry";
 import AuthorMore from "./components/pages/AuthorMore";
 import SelectAuthor from "./components/pages/SelectAuthor";
+import DeleteAuthorsBooks from "./components/pages/DeleteAuthorsBooks";
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
         <Route path="/update_country/:id" element={<UpdateAuthorCountry />} />
         <Route path="/author_more/:id" element={<AuthorMore />} />
         <Route path="/select_author" element={<SelectAuthor />} />
+        <Route path="/delete_author_books/:id" element={<DeleteAuthorsBooks />} />
 
         
         
