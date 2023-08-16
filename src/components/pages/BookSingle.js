@@ -47,7 +47,12 @@ function BookSingle() {
 
       }, [newBook.bookAuthor, authors])
     
-console.log(writers);
+if(Object.keys(newBook).length < 3) {
+  return(<>
+  
+  <h1 className="text-center"> book may be loading</h1>
+  </>)
+}
 
     return(<>
 
@@ -65,6 +70,7 @@ console.log(writers);
             
             <p>Description: {newBook.bookDescription}</p>
             <p>Released On: {moment(newBook.bookReleaseDate).format("MMM D YYYY")}</p>
+            <p> <a href={`/delete_book/${newBook._id}`}>delete book </a> </p>
     
             
           </div> 

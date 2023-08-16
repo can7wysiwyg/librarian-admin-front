@@ -44,19 +44,25 @@ function ShowAuthor() {
             
             <AuthorBio newAuthor={newAuthor} />
             </p>
-          <button  className="btn btn-warning" onClick={() => setShowModal(true)} style={{marginRight: "1.5rem"}}>EDIT</button>
+          <button  className="btn btn-warning" onClick={() => setShowModal(true)} style={{marginRight: "2rem"}}>EDIT</button>
+         
           <a href={`/author_books/${newAuthor._id}`} className="card-link">AUTHOR'S BOOKS</a>
+          
         </div>
       </div>
     </div>
  
     <Modal show={showModal} onHide={handleModalClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Update Author</Modal.Title>
+          <Modal.Title>Author Actions</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <p>Edit author's info:</p>
+        <p>Take Actions</p>
               <ul>
+                <li>
+
+                <a href={`/upload_books/${newAuthor._id}`}>upload book</a>
+                </li>
                 <li>
                   <a href={`/update_bio/${newAuthor._id}`}>update author bio</a>
                 </li>

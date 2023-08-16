@@ -32,7 +32,12 @@ function ManageBooks() {
   };
 
 
-
+if(books.length === 0) {
+  return(<>
+  <h1 style={{textAlign: "center"}}>there are no books at the moment 😫😫</h1>
+  
+  </>)
+}
 
   
     return(<>

@@ -1,6 +1,4 @@
 import React, { useContext } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 import "../styles/navbar.css"
 import { GlobalState } from '../../GlobalState';
 
@@ -91,6 +89,12 @@ const Navbar = () => {
             <li className='nav-item'>
             <a className="nav-link pe-3 me-4 fw-bold active" aria-current="page" href="/authors" >
                   AUTHORS
+                </a>
+
+            </li>
+            <li className='nav-item'>
+            <a className="nav-link pe-3 me-4 fw-bold active" aria-current="page" href="/categories" >
+                  CATEGORIES
                 </a>
 
             </li>
@@ -219,12 +223,7 @@ return(<>
 
               {welcomingAdmins()}
               
-              {/* <li className="nav-item">
-                <a className="nav-link pe-3 me-4 fw-bold" href="/">
-                  BLOG
-                </a> 
-              </li> */}
-
+              
               <li className="nav-item">
                 <a className="nav-link pe-3 me-4 fw-bold" href="/">
                   CONTACT
@@ -232,56 +231,15 @@ return(<>
               </li>
 
       { isSuperLogged === true || isLogged === true ? "" :        <li className='nav-item'>   
-<a className='nav-link pe-3 me-4 fw-bold' href="/login">LOGIN</a>
+<a className='nav-link pe-3 me-4 fw-bold' href="/login_panel">LOGIN</a>
 
 
 </li> }
 
 
-              
-             {/* {isLogged ? (
-                loggedRouter()
-              ) : (
-<li className='nav-item'>   
-<a className='nav-link pe-3 me-4 fw-bold' href="/login">LOGIN</a>
-
-
-</li>
-
-                )  }  
-
-{isSuperLogged ? (
-                loggedSuperAdminRouter()
-              ) : (
-<li className='nav-item'>   
-<a className='nav-link pe-3 me-4 fw-bold' href="/login">LOGIN</a>
-
-
-</li>
-
-              ) }
- */}
 
             </ul>
-            <ul className="navbar-nav icons ms-auto mb-2 mb-lg-0">
-              <li className="nav-item pe-3">
-                <a href="/" className="fas fa-heart">
-                  <FontAwesomeIcon icon={faHeart} />
-                  {/* <span className="num rounded-circle">1</span> */}
-                </a>
-              </li>
-              <li className="nav-item pe-3">
-                <a href="/" className="fas fa-shopping-bag">
-                  <FontAwesomeIcon icon={faShoppingBag} />
-                  {/* <span className="num rounded-circle">3</span> */}
-                </a>
-              </li>
-              {/* <li className="nav-item">
-                <span className="">items:</span>
-                <span className="fw-bold">$150.00</span>
-              </li> */}
-            </ul>
-          </div>
+                      </div>
         </div>
       </nav>
     </div>

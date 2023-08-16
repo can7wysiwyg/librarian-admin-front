@@ -17,6 +17,13 @@ import UpdateAuthorCountry from "./components/pages/UpdateAuthorCountry";
 import AuthorMore from "./components/pages/AuthorMore";
 import SelectAuthor from "./components/pages/SelectAuthor";
 import DeleteAuthorsBooks from "./components/pages/DeleteAuthorsBooks";
+import DeleteBook from "./components/pages/DeleteBook";
+import ManageAuthors from "./components/pages/ManageAuthors";
+import DeleteAuthorProfile from "./components/pages/DeleteAuthorProfile";
+import Categories from "./components/pages/Categories";
+import CreateCategories from "./components/pages/CreateCategories";
+import ManageCategories from "./components/pages/ManageCategories";
+import LoginPanel from "./components/pages/LoginPanel";
 
 
 function App() {
@@ -44,6 +51,13 @@ function App() {
         <Route path="/author_more/:id" element={<AuthorMore />} />
         <Route path="/select_author" element={<SelectAuthor />} />
         <Route path="/delete_author_books/:id" element={<DeleteAuthorsBooks />} />
+        <Route path="/delete_book/:id" element={<DeleteBook />} />
+        <Route path="/manage_authors" element={<ManageAuthors />} />
+        <Route path="/delete_author_profile/:id" element={<DeleteAuthorProfile />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/create_category" element={<CreateCategories />} />
+        <Route path="/manage_categories" element={<ManageCategories />} />
+        <Route path="/login_panel" element={<LoginPanel />} />
 
         
         
