@@ -8,7 +8,7 @@ function LibrarianPanel() {
           <div className="card">
             <div className="card-body">
               <a href="/make_librarian" className="card-title">MAKE LIBRARIAN</a>
-              <p className="card-text">Upload Books To The Site</p>
+        
             </div>
           </div>
         </div>

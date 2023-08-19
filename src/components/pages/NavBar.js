@@ -45,6 +45,13 @@ const Navbar = () => {
       
                   </li>
                   <li className='nav-item'>
+                  <a className="nav-link pe-3 me-4 fw-bold active" aria-current="page" href="/librarian_info" >
+                        VIEW LIBRARIAN INFO
+                      </a>
+      
+                  </li>
+
+                  <li className='nav-item'>
               <a className="nav-link pe-3 me-4 fw-bold active" aria-current="page" href="/" onClick={logoutSuperAdmin}>
                     LOGOUT
                   </a>
@@ -122,8 +129,8 @@ return(<>
 <nav>
         <ul className='navbar-nav ms-auto mb-2 mb-lg-0'>
             <li className='nav-item'>
-            <a className="nav-link pe-3 me-4 fw-bold active" aria-current="page" href="/email_mainadmin">
-                  EMAIL ADMIN
+            <a className="nav-link pe-3 me-4 fw-bold active" aria-current="page" href="/write_info">
+                  WRITE YOUR INFO
                 </a>
 
             </li>

@@ -24,6 +24,14 @@ import Categories from "./components/pages/Categories";
 import CreateCategories from "./components/pages/CreateCategories";
 import ManageCategories from "./components/pages/ManageCategories";
 import LoginPanel from "./components/pages/LoginPanel";
+import LibrarianPanel from "./components/superAdmin/LibrarianPanel";
+import CreateLibrarian from "./components/superAdmin/CreateLibrarian";
+import ManageLibrarian from "./components/superAdmin/ManageLibrarian";
+import WriteYourInfo from "./components/adminpending/WriteYourInfo";
+import LibrarianInfo from "./components/superAdmin/LibrarianInfo";
+import ChangeAdminStatus from "./components/superAdmin/ChangeAdminStatus";
+import AdminStatus from "./components/superAdmin/AdminStatus";
+import AccountStatus from "./components/superAdmin/AccountStatus";
 
 
 function App() {
@@ -58,6 +66,14 @@ function App() {
         <Route path="/create_category" element={<CreateCategories />} />
         <Route path="/manage_categories" element={<ManageCategories />} />
         <Route path="/login_panel" element={<LoginPanel />} />
+        <Route path="/make_admin" element={<LibrarianPanel />} />
+        <Route path="/make_librarian" element={<CreateLibrarian />} />
+        <Route path="/manage_librarian" element={<ManageLibrarian />} />
+        <Route path="/write_info" element={<WriteYourInfo />} />
+        <Route path="/librarian_info" element={<LibrarianInfo />} />
+        <Route path="/change_admin_status" element={<ChangeAdminStatus />} />
+        <Route path="/admin_status/:id" element={<AdminStatus />} />
+        <Route path="/account_status/:id" element={<AccountStatus />} />
 
         
         
