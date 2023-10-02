@@ -34,6 +34,12 @@ import AdminStatus from "./components/superAdmin/AdminStatus";
 import AccountStatus from "./components/superAdmin/AccountStatus";
 import Users from "./components/pages/Users";
 import ShowUser from "./components/pages/ShowUser";
+import RemovePermission from "./components/pages/RemovePermission";
+import GivePermission from "./components/pages/GivePermission";
+import SuspendUser from "./components/pages/SuspendUser";
+import UnsuspendUser from "./components/pages/UnsuspendUser";
+import UserBorrowedBooks from "./components/pages/UserBorrowedBooks";
+import DeleteUser from "./components/pages/DeleteUser";
 
 
 function App() {
@@ -78,6 +84,13 @@ function App() {
         <Route path="/account_status/:id" element={<AccountStatus />} />
         <Route path="/users" element={<Users />} />
         <Route path="/show_user/:id" element={<ShowUser />} />
+        <Route path="/remove_permission/:id" element={<RemovePermission />} />
+        <Route path="/permission_to_borrow/:id" element={<GivePermission />} />
+        <Route path="/suspend_user/:id" element={<SuspendUser />} />
+        <Route path="/unsuspend_user/:id" element={<UnsuspendUser />} />
+        <Route path="/see_borrowed_books/:id" element={<UserBorrowedBooks />} />
+        <Route path="/delete_user/:id" element={<DeleteUser />} />
+
 
         
         

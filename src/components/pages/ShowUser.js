@@ -82,6 +82,7 @@ function ShowUser() {
         <p>Take Actions</p>
               <ul>
                 <li> <a href={`/suspend_user/${result._id}`}>SUSPEND USER</a> </li>
+                <li> <a href={`/unsuspend_user/${result._id}`}>UNSUSPEND USER</a> </li>
                 <li> <a href={`/permission_to_borrow/${result._id}`}>GIVE USER PERMISSION TO BORROW BOOKS </a> </li>
                 <li><a href={`/remove_permission/${result._id}`}>REMOVE USER PERMISSION TO BORROW BOOKS</a></li>
                 <li><a href={`/see_borrowed_books/${result._id}`}>SEE USER BORROWED BOOKS</a></li>
