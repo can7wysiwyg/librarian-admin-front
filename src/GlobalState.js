@@ -4,6 +4,8 @@ import AuthorsApi from "./api/AuthorsApi";
 import GenresApi from "./api/GenresApi";
 import SuperAdminApi from "./api/SuperAdminApi"
 import BooksApi from "./api/BooksApi";
+import UsersApi from "./api/UsersApi";
+
 
 export const GlobalState = createContext()
 
@@ -20,7 +22,8 @@ export const DataProvider = ({children}) => {
         authorsApi: AuthorsApi(),
         genresApi: GenresApi(),
         superAdminApi: SuperAdminApi(),
-        booksApi: BooksApi()
+        booksApi: BooksApi(),
+        usersApi: UsersApi()
 
     }
 

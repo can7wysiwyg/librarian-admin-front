@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { GlobalState } from "../../GlobalState"
 import { Button,  Modal } from 'react-bootstrap';
-import "../styles/showauthor.css"
+// import "../styles/showauthor.css"
 
 
 function ShowAuthor() {

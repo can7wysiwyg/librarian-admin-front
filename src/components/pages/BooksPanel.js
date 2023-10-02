@@ -1,4 +1,4 @@
-import "../styles/authors.css"
+// import "../styles/authors.css"
 
 function BooksPanel() {
     return(<>

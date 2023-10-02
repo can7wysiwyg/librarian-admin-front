@@ -32,6 +32,8 @@ import LibrarianInfo from "./components/superAdmin/LibrarianInfo";
 import ChangeAdminStatus from "./components/superAdmin/ChangeAdminStatus";
 import AdminStatus from "./components/superAdmin/AdminStatus";
 import AccountStatus from "./components/superAdmin/AccountStatus";
+import Users from "./components/pages/Users";
+import ShowUser from "./components/pages/ShowUser";
 
 
 function App() {
@@ -74,6 +76,8 @@ function App() {
         <Route path="/change_admin_status" element={<ChangeAdminStatus />} />
         <Route path="/admin_status/:id" element={<AdminStatus />} />
         <Route path="/account_status/:id" element={<AccountStatus />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/show_user/:id" element={<ShowUser />} />
 
         
         
