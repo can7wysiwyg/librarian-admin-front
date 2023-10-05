@@ -38,6 +38,7 @@ import SuspendUser from "./components/pages/SuspendUser";
 import UnsuspendUser from "./components/pages/UnsuspendUser";
 import UserBorrowedBooks from "./components/pages/UserBorrowedBooks";
 import DeleteUser from "./components/pages/DeleteUser";
+import Borrowers from "./components/pages/Borrowers";
 
 
 function App() {
@@ -87,6 +88,7 @@ function App() {
         <Route path="/unsuspend_user/:id" element={<UnsuspendUser />} />
         <Route path="/see_borrowed_books/:id" element={<UserBorrowedBooks />} />
         <Route path="/delete_user/:id" element={<DeleteUser />} />
+        <Route path="/borrowers" element={<Borrowers />} />
 
 
         

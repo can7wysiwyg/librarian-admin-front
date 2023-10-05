@@ -92,6 +92,13 @@ const Navbar = () => {
                 </a>
 
             </li>
+            <li className='nav-item'>
+            <a className="nav-link pe-3 me-4 fw-bold active" aria-current="page" href="/borrowers" >
+                  BORROWERS
+                </a>
+
+            </li>
+
 
             <li className='nav-item'>
             <a className="nav-link pe-3 me-4 fw-bold active" aria-current="page" href="/authors" >
