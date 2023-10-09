@@ -79,6 +79,11 @@ setResult(item)
 
 
     }, [books, BookOne])
+
+ if(result === undefined || result === null || result === "") {
+  return(<h1>as stuff loads</h1>)
+ }
+
  let named = result.bookFile
 
     
@@ -91,14 +96,14 @@ setResult(item)
               <div className="card-body text-center">
                 <h5 className="card-title">{result.bookTitle}</h5>
                 <p className="card-text">released on {moment(result.bookReleaseDate).format("MMM D YYYY")} </p>
-                <h5 className="card-text text-primary" style={{cursor: "pointer"}}>
+                 <h5 className="card-text text-primary" style={{cursor: "pointer"}}>
                    <a href={named} style={{textDecoration: "none"}} target="_blank" rel="noreferrer">
                      VIEW BOOK 
                      </a>
                      
                       </h5> 
                 
-                
+                 
                 
              </div> 
              </div> 
@@ -136,6 +141,12 @@ setResult(item)
     
     
         }, [books, BookTwo])
+
+        if(result === undefined || result === null || result === "") {
+          return(<h1>as stuff loads</h1>)
+         }
+        
+
      let named = result.bookFile
     
         
@@ -194,6 +205,13 @@ setResult(item)
         
         
             }, [books, BookThree])
+
+            if(result === undefined || result === null || result === "") {
+              return(<h1>as stuff loads</h1>)
+             }
+            
+
+
          let named = result.bookFile
         
             

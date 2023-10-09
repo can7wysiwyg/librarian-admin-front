@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react"
+import { Table  } from 'react-bootstrap';
 import { GlobalState } from "../../GlobalState"
 import axios from "axios"
 
@@ -6,6 +7,7 @@ function Borrowers() {
    const state = useContext(GlobalState)
    const token = state.token
    const[books, setBooks] = useState([])
+   
    
    useEffect(() => {
 
@@ -29,7 +31,16 @@ function Borrowers() {
 
    }, [token])
 
+   if(books.length === 0) {
+    return(<>
+    
+    <h1 className="text-center">as users load</h1>
+    </>)
+   }
+
    
+
+
     return(<>
     {
 
@@ -48,6 +59,7 @@ const ListUsers = ({bookBorrower}) => {
     const state = useContext(GlobalState)
    const[users] = state.usersApi.users
    const[results, setResults] = useState({})
+   
 
 
    useEffect(() => {
@@ -58,17 +70,59 @@ const ListUsers = ({bookBorrower}) => {
 
    }, [users, bookBorrower])
 
+   
+   
+
+   
+   if(users.length === 0) {
+    return ""
+}
+
+
+
+
     return(<>
+
+<Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>IMAGE</th>
+            <th>NAME</th>
+            <th>VIEW BORROWED BOOKS</th>
+            
+            
+          </tr>
+        </thead>
+        <tbody>
     
     {
         results?.map((result) => {
-            return <div key={result._id}>
- <p>{result.fullname}</p>
+            return <tr key={result._id}>
+            <td>
+              <img src={result.userImage} alt={result.fullname} style={{ width: '50px' }} />
+            </td>
+            <td> <a href={`/show_user/${result._id}`}> {result.fullname} </a> </td>
+                       <td>
+         
+        <a href={`/see_borrowed_books/${result._id}`}>CLICK TO VIEW</a> 
+        
+
+            </td>
             
-            </div>
+          </tr>
         })
     }
+
+
+    </tbody>
+    </Table>
+
+    
+
     </>)
 }
+
+
+
 
 export default Borrowers

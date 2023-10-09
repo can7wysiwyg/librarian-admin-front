@@ -33,11 +33,8 @@ function ShowUser() {
         <div className="container d-flex justify-content-center align-items-center ">
       <div className="card text-center">
         <div className="card-body">
-        <img className="card-img-top img-responsive" src={result.userImage} alt={result.fullname} style={{
-                  maxWidth: "90%",
-                  maxHeight: "90%",
-                  objectFit: "contain"
-                }}
+        <img  src={result.userImage} alt={result.fullname} 
+        
  />
 
           <h5 className="card-title">{result.fullname}</h5>
