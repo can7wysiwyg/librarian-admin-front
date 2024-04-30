@@ -1,7 +1,7 @@
 import axios from "axios"
 import { ApiUrl } from "../../helpers/ApiUrl"
 import { supertoken } from "../../helpers/AdminsTokens"
-
+import {MAIN_ADMIN_SHOW, AUTH_MAIN_ADMIN_ERROR, AUTH_MAIN_ADMIN_LOGIN} from "./types"
 
 export function mainAdminLog(data) {
     return async function(dispatch) {
