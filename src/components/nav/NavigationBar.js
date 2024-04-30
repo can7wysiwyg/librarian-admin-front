@@ -1,4 +1,5 @@
 import { AuthComp } from "../../helpers/AuthComp"
+import { DashboardComp } from "../../helpers/DashboardComp"
 
 function NavigationBar() {
     return(<>
@@ -17,7 +18,7 @@ function NavigationBar() {
             <li className="nav-item active">
               <a className="nav-link" href="/">HOME</a>
             </li>
-            {/* <li> { DashboardComp() } </li> */}
+            <li> { DashboardComp() } </li>
             <li><a className="nav-link" href="/about">ABOUT</a></li>
             
             
