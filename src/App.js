@@ -5,7 +5,7 @@ import Login from "./components/pages/Login";
 // import CreateAuthors from "./components/pages/CreateAuthors";
 // import BooksPanel from "./components/pages/BooksPanel";
 // import UploadBooks from "./components/pages/UploadBooks";
-// import SuperAdminLogin from "./components/pages/SuperAdminLogin";
+import SuperAdminLogin from "./components/pages/SuperAdminLogin";
 // import ManageBooks from "./components/pages/ManageBooks";
 // import BookSingle from "./components/pages/BookSingle";
 // import ShowAuthor from "./components/pages/ShowAuthor";
@@ -23,7 +23,7 @@ import Login from "./components/pages/Login";
 // import Categories from "./components/pages/Categories";
 // import CreateCategories from "./components/pages/CreateCategories";
 // import ManageCategories from "./components/pages/ManageCategories";
-// import LoginPanel from "./components/pages/LoginPanel";
+import LoginPanel from "./components/pages/LoginPanel";
 // import LibrarianPanel from "./components/superAdmin/LibrarianPanel";
 // import CreateLibrarian from "./components/superAdmin/CreateLibrarian";
 // import ManageLibrarian from "./components/superAdmin/ManageLibrarian";
@@ -49,12 +49,16 @@ function App() {
 
     <div className="container">
       <Routes>
+
+      <Route path="/login_panel" element={<LoginPanel />} />
         <Route path="/login" element={<Login />} />
+
+        <Route path="/super_login" element={<SuperAdminLogin />} />
         {/* <Route path="/authors" element={<Authors />} />
         <Route path="/create_authors" element={<CreateAuthors />} />
         <Route path="/books_panel" element={<BooksPanel />} />
         <Route path="/upload_books/:id" element={<UploadBooks />} />
-        <Route path="/super_login" element={<SuperAdminLogin />} />
+        
         <Route path="/manage_books" element={<ManageBooks />} />
         <Route path="/book_single/:id" element={<BookSingle />} />
         <Route path="/show_author/:id" element={<ShowAuthor />} />
@@ -72,7 +76,7 @@ function App() {
         <Route path="/categories" element={<Categories />} />
         <Route path="/create_category" element={<CreateCategories />} />
         <Route path="/manage_categories" element={<ManageCategories />} />
-        <Route path="/login_panel" element={<LoginPanel />} />
+        
         <Route path="/make_admin" element={<LibrarianPanel />} />
         <Route path="/make_librarian" element={<CreateLibrarian />} />
         <Route path="/manage_librarian" element={<ManageLibrarian />} />

@@ -44,7 +44,12 @@ export function mainAdminGet() {
                 }
             })
 
+
+            
+
             const mainadmin = response.data.mainadmin
+
+            
 
             dispatch({type: MAIN_ADMIN_SHOW, payload: mainadmin})
             

@@ -44,8 +44,11 @@ export function librarianAdminGet() {
                 }
             })
 
+            
+
             const librarian = response.data.admin
 
+            
             dispatch({type: LIBRARIAN_ADMIN_SHOW, payload: librarian})
             
         } catch (error) {

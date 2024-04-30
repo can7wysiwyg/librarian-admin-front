@@ -1,25 +1,31 @@
-import { useState } from "react"
-import { useDispatch } from "react-redux"
-
+import { useDispatch, useSelector } from "react-redux"
 import { mainAdminGet } from "../redux/actions/mainAdminAction"
 import { librarianAdminGet } from "../redux/actions/librarianAdminAction"
+import { useEffect } from "react"
 
 export function AdminCheck() {
-const[librarianAdmin, setLibrarianAdmin] = useState({})
-const[mainAdmin, setMainAdmin] = useState({})
+
+
 
 const dispatch = useDispatch()
+const mainadmin = useSelector((state) => state.mainadminRdcr.mainadmin)
+const librarian = useSelector((state) => state.librarianRdcr.librarian)
 
-
-useDispatch(() => {
+useEffect(() => {
 
 const fetchData = async() => {
-    
-     const responseLibrarian =  await dispatch(librarianAdminGet)
-     const responseMainAdmin = await dispatch(mainAdminGet())
-     setLibrarianAdmin(responseLibrarian)
-     setMainAdmin(responseMainAdmin)
+    try {
+        await dispatch(librarianAdminGet())
+        await dispatch(mainAdminGet())
 
+      
+        
+        
+        
+    } catch (error) {
+        console.error(error)
+    }
+      
 
 
 }   
@@ -34,7 +40,7 @@ fetchData()
 
 const AuthInfo = () => {
 
-    if(librarianAdmin.admin === 1) {
+    if(librarian?.admin === 1) {
 
         return (<>
          <a className="nav-link" href="/librarian">LIBRARIAN</a>
@@ -43,14 +49,16 @@ const AuthInfo = () => {
 
     }
 
+    if(mainadmin?.super === 18) {
+        return(<>
+         <a className="nav-link" href="/mainadmin">ADMIN</a>
+        
+        </>)
+    }
+    
+
 
 } 
-if(mainAdmin.super === 18) {
-    return(<>
-     <a className="nav-link" href="/mainadmin">ADMIN</a>
-    
-    </>)
-}
 
 return(<>
 { AuthInfo() }

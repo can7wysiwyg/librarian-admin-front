@@ -2,16 +2,31 @@ import { logoutAdmin } from "./Logout"
 import {supertoken, librarianToken} from "./AdminsTokens"
 
 export function AuthComp() {
+  const checkAuth = () => {
     
-    return(<>
-   { supertoken || librarianToken  === null  ? <a className="nav-link" href="/login">LOGIN </a>
-        
 
-    :  <a href="#c" className="nav-link" style={{cursor: "pointer"}} onClick={logoutAdmin} >
-      LOGOUT
-    </a>
+    
+    if (supertoken === null && librarianToken === null) {
+      return (
+        <>
+          <a className="nav-link" href="/login_panel">LOGIN</a>
+        </>
+      );
+    }
 
-}
-        
-    </>)
+    
+    return (
+      <>
+        <a href="#c" className="nav-link" style={{ cursor: "pointer" }} onClick={logoutAdmin}>
+          LOGOUT
+        </a>
+      </>
+    );
+  }
+
+  return (
+    <>
+      {checkAuth()}
+    </>
+  );
 }
