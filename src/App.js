@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import NavigationBar from "./components/nav/NavigationBar";
-import Login from "./components/pages/Login";
+import Login from "./components/auth/Login";
 // import Authors from "./components/pages/Authors";
 // import CreateAuthors from "./components/pages/CreateAuthors";
 // import BooksPanel from "./components/pages/BooksPanel";
 // import UploadBooks from "./components/pages/UploadBooks";
-import SuperAdminLogin from "./components/pages/SuperAdminLogin";
+import SuperAdminLogin from "./components/auth/SuperAdminLogin";
 // import ManageBooks from "./components/pages/ManageBooks";
 // import BookSingle from "./components/pages/BookSingle";
 // import ShowAuthor from "./components/pages/ShowAuthor";
@@ -23,8 +23,8 @@ import SuperAdminLogin from "./components/pages/SuperAdminLogin";
 // import Categories from "./components/pages/Categories";
 // import CreateCategories from "./components/pages/CreateCategories";
 // import ManageCategories from "./components/pages/ManageCategories";
-import LoginPanel from "./components/pages/LoginPanel";
-// import LibrarianPanel from "./components/superAdmin/LibrarianPanel";
+import LoginPanel from "./components/auth/LoginPanel";
+import LibrarianPanel from "./components/librarian/LibrarianPanel";
 // import CreateLibrarian from "./components/superAdmin/CreateLibrarian";
 // import ManageLibrarian from "./components/superAdmin/ManageLibrarian";
 // import WriteYourInfo from "./components/adminpending/WriteYourInfo";
@@ -54,6 +54,11 @@ function App() {
         <Route path="/login" element={<Login />} />
 
         <Route path="/super_login" element={<SuperAdminLogin />} />
+        <Route path="/librarian_panel" element={<LibrarianPanel />} />
+        {/* <Route path="/users" element={<Users />} />
+        <Route path="/show_user/:id" element={<ShowUser />} />
+         */}
+
         {/* <Route path="/authors" element={<Authors />} />
         <Route path="/create_authors" element={<CreateAuthors />} />
         <Route path="/books_panel" element={<BooksPanel />} />
@@ -77,7 +82,7 @@ function App() {
         <Route path="/create_category" element={<CreateCategories />} />
         <Route path="/manage_categories" element={<ManageCategories />} />
         
-        <Route path="/make_admin" element={<LibrarianPanel />} />
+        
         <Route path="/make_librarian" element={<CreateLibrarian />} />
         <Route path="/manage_librarian" element={<ManageLibrarian />} />
         <Route path="/write_info" element={<WriteYourInfo />} />
@@ -85,9 +90,7 @@ function App() {
         <Route path="/change_admin_status" element={<ChangeAdminStatus />} />
         <Route path="/admin_status/:id" element={<AdminStatus />} />
         <Route path="/account_status/:id" element={<AccountStatus />} />
-        <Route path="/users" element={<Users />} />
-        <Route path="/show_user/:id" element={<ShowUser />} />
-        
+                
         <Route path="/suspend_user/:id" element={<SuspendUser />} />
         <Route path="/unsuspend_user/:id" element={<UnsuspendUser />} />
         <Route path="/see_borrowed_books/:id" element={<UserBorrowedBooks />} />

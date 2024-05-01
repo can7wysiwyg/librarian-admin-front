@@ -43,7 +43,7 @@ const AuthInfo = () => {
     if(librarian?.admin === 1) {
 
         return (<>
-         <a className="nav-link" href="/librarian">LIBRARIAN</a>
+         <a className="nav-link" href="/librarian_panel">LIBRARIAN</a>
         
         </>)
 
@@ -51,7 +51,7 @@ const AuthInfo = () => {
 
     if(mainadmin?.super === 18) {
         return(<>
-         <a className="nav-link" href="/mainadmin">ADMIN</a>
+         <a className="nav-link" href="/adminpanel">ADMIN</a>
         
         </>)
     }
