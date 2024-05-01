@@ -1,6 +1,13 @@
-
+import {librarianToken} from "../../helpers/AdminsTokens"
 
 function LibrarianPanel() {
+
+if(!librarianToken ) {
+
+    return ""
+
+}
+
     return(<>
     
     <section className="py-6 bg-light-primary">

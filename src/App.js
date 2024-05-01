@@ -25,6 +25,8 @@ import SuperAdminLogin from "./components/auth/SuperAdminLogin";
 // import ManageCategories from "./components/pages/ManageCategories";
 import LoginPanel from "./components/auth/LoginPanel";
 import LibrarianPanel from "./components/librarian/LibrarianPanel";
+import BooksPanel from "./components/librarian/BooksPanel";
+import UploadBook from "./components/librarian/UploadBook";
 // import CreateLibrarian from "./components/superAdmin/CreateLibrarian";
 // import ManageLibrarian from "./components/superAdmin/ManageLibrarian";
 // import WriteYourInfo from "./components/adminpending/WriteYourInfo";
@@ -55,6 +57,8 @@ function App() {
 
         <Route path="/super_login" element={<SuperAdminLogin />} />
         <Route path="/librarian_panel" element={<LibrarianPanel />} />
+        <Route path="/books_panel"  element={<BooksPanel />} />
+        <Route path="/upload_book" element={<UploadBook />} />
         {/* <Route path="/users" element={<Users />} />
         <Route path="/show_user/:id" element={<ShowUser />} />
          */}
