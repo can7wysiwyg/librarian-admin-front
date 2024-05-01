@@ -1,5 +1,5 @@
 import axios from "axios"
-import { GENRE_CREATE, GENRE_ERROR } from "./types"
+import { GENRE_CREATE, GENRE_ERROR, SHOW_GENRES } from "./types"
 import { ApiUrl } from "../../helpers/ApiUrl"
 import { librarianToken } from "../../helpers/AdminsTokens"
 
@@ -24,4 +24,28 @@ export function GenreCreate(data) {
         }
 
     }
+}
+
+
+export function getGenres() {
+
+    return async function(dispatch) {
+
+        try {
+
+            const response = await axios.get(`${ApiUrl}/genre/show_all`)
+
+            const genres = response.data.genres
+
+            dispatch({type: SHOW_GENRES, payload: genres})
+            
+        } catch (error) {
+            console.error(error)
+            dispatch({type: GENRE_ERROR})
+            throw error
+        }
+
+
+    }
+
 }

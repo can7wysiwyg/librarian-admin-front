@@ -1,10 +1,38 @@
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getGenres } from "../../redux/actions/genreAction";
+import { BookUpload } from "../../redux/actions/bookAction";
 
 function UploadBook() {
     const[formDatta, setFormDatta] = useState({bookAuthor: "", bookTitle: "", bookISBN: "", bookGenre: "", bookReleaseDate: "",  bookDescription: ""})
     const[bookImage, setBookImage] = useState(false)
     const[bookFile, setBookFile] = useState(false)
+
+    const genres = useSelector((state) => state.genreRdcr.genres)
+
+
+
+  const dispatch =  useDispatch()
+
+
+  useEffect(() => {
+
+    const fetchData = async() => {
+     
+      try {
+        await dispatch(getGenres())
+        
+      } catch (error) {
+        console.error("there was a problem")
+      }
+
+    }
+
+    fetchData()
+
+
+  }, [dispatch])
 
 
     const handleInputChange = (e) => {
@@ -26,7 +54,7 @@ function UploadBook() {
 
 
      
-      const handleSubmit = (event) => {
+      const handleSubmit = async(event) => {
         event.preventDefault()
 
         const formData = new FormData();
@@ -41,11 +69,18 @@ function UploadBook() {
         formData.append('bookImage', bookImage)
 
 
+       await dispatch(BookUpload(formData))
+
 
       }
       
 
+if(!genres || genres === undefined || genres === null || genres.length === 0   ) {
 
+  alert('THERE ARE NO BOOK GENRES! TO UPLOAD A BOOK, PLEASE CREATE A GENRE FIRST...')
+  window.location.href = "/create_category"
+
+}
 
 
     return(<>
@@ -131,6 +166,25 @@ function UploadBook() {
                 required
               />
             </Form.Group>
+
+
+            <Form.Group className="mb-3" controlId="formBasicBookGenre">
+              <Form.Select
+                name="bookGenre"
+                value={formDatta.bookGenre}
+                onChange={handleInputChange}
+                required
+              >
+                <option value="">Select Book Genre</option>
+                {genres?.map((genre) => (
+                  <option value={genre._id} key={genre._id}>
+                    {genre.genreName}
+                  </option>
+                ))}
+              </Form.Select>
+            </Form.Group>
+
+
 
 <Button type="submit">upload book</Button>
 </Form>
