@@ -15,6 +15,7 @@ export function GenreCreate(data) {
 
             dispatch({type: GENRE_CREATE})
             alert(response.data.msg)
+            window.location.href = "/book_genres"
 
             
         } catch (error) {

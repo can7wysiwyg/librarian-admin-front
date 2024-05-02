@@ -73,14 +73,25 @@ function UploadBook() {
 
 
       }
+
+
+  if(!genres || genres === undefined || genres === null) {
+    return(<>
+    
+    <h6 className="text-center" style={{marginTop: "2rem"}}>book genres are loading</h6>
+    </>)
+  }    
       
 
-if(!genres || genres === undefined || genres === null || genres.length === 0   ) {
+if(genres.length === 0) {
 
   alert('THERE ARE NO BOOK GENRES! TO UPLOAD A BOOK, PLEASE CREATE A GENRE FIRST...')
   window.location.href = "/create_category"
 
 }
+
+
+console.log(genres);
 
 
     return(<>
@@ -97,7 +108,7 @@ if(!genres || genres === undefined || genres === null || genres.length === 0   )
                 type="file"
                 onChange={handleBookImageUpload}
                 required
-                 accept=".jpg .png"
+                 accept=".png, .jpg, .jpeg, .webp"
               />
             </Form.Group>
 

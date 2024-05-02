@@ -1,4 +1,4 @@
-import { GENRE_ERROR, GENRE_CREATE } from "../actions/types";
+import { GENRE_ERROR, GENRE_CREATE, SHOW_GENRES } from "../actions/types";
 
 export function genreRdcr(state={}, action) {
 
@@ -6,6 +6,11 @@ export function genreRdcr(state={}, action) {
 
         case GENRE_CREATE:
             return{...state, msg: "successful"}
+
+        
+        case  SHOW_GENRES:
+            return{...state, genres: action.payload}    
+    
 
         case GENRE_ERROR:
             return{...state, error: "there was a problem"}

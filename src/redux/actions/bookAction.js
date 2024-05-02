@@ -16,6 +16,8 @@ export function BookUpload(data) {
             dispatch({type: BOOK_UPLOAD})
             alert(response.data.msg)
 
+            window.location.href ="/show_books"
+
             
         } catch (error) {
             console.error(error)
