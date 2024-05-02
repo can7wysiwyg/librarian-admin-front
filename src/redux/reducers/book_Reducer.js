@@ -1,4 +1,4 @@
-import { BOOK_ERROR, BOOK_SINGLE, BOOK_UPLOAD, SHOW_BOOKS  } from "../actions/types";
+import { BOOK_ERROR, BOOK_SINGLE, BOOK_UPLOAD, SHOW_BOOKS, UPDATE_BOOK_AUTHOR, UPDATE_BOOK_DESCRIPTION, UPDATE_BOOK_GENRE, UPDATE_BOOK_TITLE  } from "../actions/types";
 
 export function bookRdcr(state={}, action) {
 
@@ -11,7 +11,21 @@ export function bookRdcr(state={}, action) {
             return{...state, books: action.payload}
             
         case BOOK_SINGLE:
-            return{...state, book: action.payload}    
+            return{...state, book: action.payload} 
+            
+        case UPDATE_BOOK_AUTHOR:
+            return{...state, msg: "successful"} 
+            
+        case UPDATE_BOOK_TITLE:
+            return{...state, msg: "successful"}  
+            
+        case UPDATE_BOOK_GENRE:
+             return{...state, msg: "successful"}  
+             
+        case UPDATE_BOOK_DESCRIPTION:
+            return{...state, msg: "successful"}    
+         
+        
 
         
         case BOOK_ERROR:

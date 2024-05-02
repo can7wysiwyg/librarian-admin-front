@@ -1,5 +1,5 @@
 import axios from "axios"
-import { BOOK_ERROR, BOOK_SINGLE, BOOK_UPLOAD, SHOW_BOOKS } from "./types"
+import { BOOK_ERROR, BOOK_SINGLE, BOOK_UPLOAD, SHOW_BOOKS, UPDATE_BOOK_AUTHOR, UPDATE_BOOK_DESCRIPTION, UPDATE_BOOK_GENRE, UPDATE_BOOK_TITLE } from "./types"
 import { ApiUrl } from "../../helpers/ApiUrl"
 import { librarianToken } from "../../helpers/AdminsTokens"
 
@@ -69,3 +69,110 @@ export function SingleBook(id) {
     }
 
 } 
+
+export function AuthorUpdate(id, data) {
+
+    return async function(dispatch) {
+        try {
+            const response = await axios.put(`${ApiUrl}/adminbook/update_book_author/${id}`, data, {
+                headers: {
+                    Authorization: `Bearer ${librarianToken}`
+                }
+            })
+
+            dispatch({type: UPDATE_BOOK_AUTHOR})
+            alert(response.data.msg)
+
+            window.location.href = `/book_single/${id}`
+            
+        } catch (error) {
+
+            console.error(error)
+            dispatch({type: BOOK_ERROR})
+            throw error
+            
+        }
+    }
+
+}
+
+
+export function TitleUpdate(id, data) {
+
+    return async function(dispatch) {
+        try {
+            const response = await axios.put(`${ApiUrl}/adminbook/update_book_title/${id}`, data, {
+                headers: {
+                    Authorization: `Bearer ${librarianToken}`
+                }
+            })
+
+            dispatch({type: UPDATE_BOOK_TITLE})
+            alert(response.data.msg)
+
+            window.location.href = `/book_single/${id}`
+            
+        } catch (error) {
+
+            console.error(error)
+            dispatch({type: BOOK_ERROR})
+            throw error
+            
+        }
+    }
+
+}
+
+
+export function DescriptionUpdate(id, data) {
+
+    return async function(dispatch) {
+        try {
+            const response = await axios.put(`${ApiUrl}/adminbook/update_book_description/${id}`, data, {
+                headers: {
+                    Authorization: `Bearer ${librarianToken}`
+                }
+            })
+
+            dispatch({type: UPDATE_BOOK_DESCRIPTION})
+            alert(response.data.msg)
+
+            window.location.href = `/book_single/${id}`
+            
+        } catch (error) {
+
+            console.error(error)
+            dispatch({type: BOOK_ERROR})
+            throw error
+            
+        }
+    }
+
+}
+
+
+export function GenreUpdate(id, data) {
+
+    return async function(dispatch) {
+        try {
+            const response = await axios.put(`${ApiUrl}/adminbook/update_book_genre/${id}`, data, {
+                headers: {
+                    Authorization: `Bearer ${librarianToken}`
+                }
+            })
+
+            dispatch({type: UPDATE_BOOK_GENRE})
+            alert(response.data.msg)
+
+            window.location.href = `/book_single/${id}`
+            
+        } catch (error) {
+
+            console.error(error)
+            dispatch({type: BOOK_ERROR})
+            throw error
+            
+        }
+    }
+
+}

@@ -10,6 +10,10 @@ import CreateCategory from "./components/librarian/CreateCategory";
 import ShowBooks from "./components/widgets/ShowBooks";
 import BookSingle from "./components/widgets/BookSingle";
 import UpdateList from "./components/librarian/UpdateList";
+import UpdateAuthor from "./components/librarian/UpdateAuthor";
+import UpdateTitle from "./components/librarian/UpdateTitle";
+import UpdateGenre from "./components/librarian/UpdateGenre";
+import UpdateDescription from "./components/librarian/UpdateDescription";
 
 
 function App() {
@@ -31,6 +35,10 @@ function App() {
         <Route path="/show_books" element={<ShowBooks />} />
         <Route path="/book_single/:id" element={<BookSingle />} />
         <Route path="/update_list/:id" element={<UpdateList />} />
+        <Route path="/update_author/:id" element={<UpdateAuthor />} />
+        <Route path="/update_title/:id" element={<UpdateTitle />} />
+        <Route path="/update_genre/:id" element={<UpdateGenre />} />
+        <Route path="/update_description/:id" element={<UpdateDescription />} />
         
 
         
