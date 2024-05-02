@@ -7,6 +7,8 @@ import LibrarianPanel from "./components/librarian/LibrarianPanel";
 import BooksPanel from "./components/librarian/BooksPanel";
 import UploadBook from "./components/librarian/UploadBook";
 import CreateCategory from "./components/librarian/CreateCategory";
+import ShowBooks from "./components/widgets/ShowBooks";
+import BookSingle from "./components/widgets/BookSingle";
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
         <Route path="/books_panel"  element={<BooksPanel />} />
         <Route path="/upload_book" element={<UploadBook />} />
         <Route path="/create_category" element={<CreateCategory />} />
+        <Route path="/show_books" element={<ShowBooks />} />
+        <Route path="/book_single/:id" element={<BookSingle />} />
         
 
         

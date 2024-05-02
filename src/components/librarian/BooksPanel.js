@@ -11,7 +11,7 @@ function BooksPanel() {
           <li className="list-group-item d-flex justify-content-between align-items-start">
             <div className="ms-2 me-auto">
               <div className="fw-bold">View Books</div>
-              <p><a href="/see_books">View books</a></p>
+              <p><a href="/show_books">View books</a></p>
             </div>
           </li>
         </ol>
