@@ -3,10 +3,12 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { SingleBook } from "../../redux/actions/bookAction"
 import moment from "moment/moment"
+import { SingleGenre } from "../../redux/actions/genreAction"
 
 function BookSingle() {
     const{id} = useParams()
     const book = useSelector((state) => state.bookRdcr.book)
+    const genre = useSelector((state) => state.genreRdcr.genre)
     const dispatch = useDispatch()
     const [fadeIn, setFadeIn] = useState(false);
     const bookDetailsRef = useRef(null);
@@ -19,6 +21,10 @@ function BookSingle() {
             try {
 
                 await dispatch(SingleBook(id))
+
+                if(book && book.bookGenre) {
+                  await dispatch(SingleGenre(book.bookGenre))
+                }
                 
             } catch (error) {
                 console.error("there was a problem")
@@ -31,7 +37,7 @@ function BookSingle() {
         fetchData()
 
        
-    }, [dispatch, id])
+    }, [dispatch, id, book])
 
 
     useEffect(() => {
@@ -39,13 +45,15 @@ function BookSingle() {
       }, []);
 
 
-      if(!book || book === undefined || book === null) {
+      if(!book || book === undefined || book === null || !genre || genre === undefined || genre === null) {
         return(<>
         <h6 className="text-center" style={{marginTop: "2 rem"}}>book is loading</h6>
         
         </>)
       }
 
+
+      
 
     return(<>
     <div
@@ -59,6 +67,11 @@ function BookSingle() {
             <h3>
               {book.bookAuthor}
             </h3>
+
+            <p>
+             Genre: {genre.genreName}
+            </p>
+            
             
             <p>Description: {book.bookDescription}</p>
             <p>Released On: {moment(book.bookReleaseDate).format("MMM D YYYY")}</p>

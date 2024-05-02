@@ -9,6 +9,7 @@ import UploadBook from "./components/librarian/UploadBook";
 import CreateCategory from "./components/librarian/CreateCategory";
 import ShowBooks from "./components/widgets/ShowBooks";
 import BookSingle from "./components/widgets/BookSingle";
+import UpdateList from "./components/librarian/UpdateList";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/create_category" element={<CreateCategory />} />
         <Route path="/show_books" element={<ShowBooks />} />
         <Route path="/book_single/:id" element={<BookSingle />} />
+        <Route path="/update_list/:id" element={<UpdateList />} />
         
 
         
