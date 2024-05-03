@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { BooksShow } from "../../redux/actions/bookAction"
+import { BookDelete, BooksShow } from "../../redux/actions/bookAction"
 import { Table, Button, OverlayTrigger, Tooltip, Modal, Form } from 'react-bootstrap';
 
 
@@ -139,6 +139,7 @@ function ShowBooks() {
 
 const Buttons = ({book}) => {
     const [showModal, setShowModal] = useState(false);
+    const dispatch = useDispatch()
 
     const handleModalClose = () => {
       setShowModal(false);
@@ -152,6 +153,8 @@ const Buttons = ({book}) => {
     const handleDelete = async(event) => {
 
         event.preventDefault()
+
+        await dispatch(BookDelete(book._id))
 
         
     }
@@ -190,7 +193,7 @@ const Buttons = ({book}) => {
                   <a href={`/book_update_picture/${book._id}`}>update book picture</a>
                 </li>
                 <li>
-                  <a href={`/book_update_picture/${book._id}`}>update book pdf</a>
+                  <a href={`/book_update_pdf/${book._id}`}>update book pdf</a>
                 </li>
               </ul>
         

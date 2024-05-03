@@ -14,6 +14,8 @@ import UpdateAuthor from "./components/librarian/UpdateAuthor";
 import UpdateTitle from "./components/librarian/UpdateTitle";
 import UpdateGenre from "./components/librarian/UpdateGenre";
 import UpdateDescription from "./components/librarian/UpdateDescription";
+import BookPhotoUpdate from "./components/librarian/BookPhotoUpdate";
+import BookPdfUpdate from "./components/librarian/BookPdfUpdate";
 
 
 function App() {
@@ -39,6 +41,8 @@ function App() {
         <Route path="/update_title/:id" element={<UpdateTitle />} />
         <Route path="/update_genre/:id" element={<UpdateGenre />} />
         <Route path="/update_description/:id" element={<UpdateDescription />} />
+        <Route path="/book_update_picture/:id" element={<BookPhotoUpdate />} />
+        <Route path="/book_update_pdf/:id" element={<BookPdfUpdate />} />
         
 
         

@@ -91,7 +91,7 @@ if(genres.length === 0) {
 }
 
 
-console.log(genres);
+
 
 
     return(<>
