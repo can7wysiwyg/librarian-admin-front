@@ -4,7 +4,7 @@ import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { GenreCreate } from "../../redux/actions/genreAction";
 
 
-function CreateCategory() {
+function CreateGenre() {
     const[formData, setFormData] = useState({genreName: ""})
    const dispatch = useDispatch()
 
@@ -58,4 +58,4 @@ function CreateCategory() {
     </>)
 }
 
-export default CreateCategory
+export default CreateGenre

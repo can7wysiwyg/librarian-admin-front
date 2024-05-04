@@ -107,8 +107,8 @@ if(!librarianToken ) {
                     <text x="135" y="35" font-size="10" fill="#000">Cat 4</text>
                 </svg>
             </div>
-            <h6 className="font-weight-bold mb-3">CATEGORIES</h6>
-            <p className="text-muted mb-0"><a href="/categories_panel">View and Manage Categories</a></p>
+            <h6 className="font-weight-bold mb-3">BOOK GENRES</h6>
+            <p className="text-muted mb-0"><a href="/genres_panel">View and Manage Book Genres</a></p>
         </div>
     </div>
 </div>
