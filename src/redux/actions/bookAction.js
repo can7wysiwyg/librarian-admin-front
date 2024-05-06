@@ -1,5 +1,5 @@
 import axios from "axios"
-import { BOOK_ERROR, BOOK_SINGLE, BOOK_UPLOAD, DELETE_BOOK, SHOW_BOOKS, UPDATE_BOOK_AUTHOR, UPDATE_BOOK_DESCRIPTION, UPDATE_BOOK_GENRE, UPDATE_BOOK_PDF, UPDATE_BOOK_PICTURE, UPDATE_BOOK_TITLE } from "./types"
+import { BOOK_ACCORDING_TO_GENRE, BOOK_ERROR, BOOK_SINGLE, BOOK_UPLOAD, DELETE_BOOK, SHOW_BOOKS, UPDATE_BOOK_AUTHOR, UPDATE_BOOK_DESCRIPTION, UPDATE_BOOK_GENRE, UPDATE_BOOK_PDF, UPDATE_BOOK_PICTURE, UPDATE_BOOK_TITLE } from "./types"
 import { ApiUrl } from "../../helpers/ApiUrl"
 import { librarianToken } from "../../helpers/AdminsTokens"
 
@@ -267,4 +267,29 @@ export function PdfUpdate(id, data) {
 
         }
 
+    }
+
+
+    export function BookAccGenre(id) {
+        return async function(dispatch) {
+
+
+            try {
+
+                const response = await axios.get(`${ApiUrl}/books/show_according_to_genre/gnr?genre=${id}`)
+
+                const bookGen = response.data.books
+
+                dispatch({type: BOOK_ACCORDING_TO_GENRE, payload: bookGen})
+                
+
+                
+            } catch (error) {
+                console.error(error)
+                dispatch({type: BOOK_ERROR})
+                throw error
+                
+            }
+
+        }
     }

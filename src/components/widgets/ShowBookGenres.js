@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getGenres } from "../../redux/actions/genreAction"
 import { motion } from 'framer-motion';
-import { BooksShow } from "../../redux/actions/bookAction";
 
 function ShowBookGenres() {
 
@@ -67,7 +66,7 @@ function ShowBookGenres() {
     }
 
 
-    return(<>
+    return(
     <motion.div >
     <ul className="list-group">
           {genres?.map((category, index) => (
@@ -76,7 +75,9 @@ function ShowBookGenres() {
             className="list-group-item d-flex justify-content-between align-items-center mb-2"
             variants={categoryVariants}
           >
-            <ShowGenres category={category} />
+         <a href={`/genre_single/${category._id}`}>{category.genreName}</a>   
+
+          
             
           </motion.li>
             
@@ -89,79 +90,11 @@ function ShowBookGenres() {
     
     
     
-    </>)
+    )
 
 
 }
 
 
-const ShowGenres = ({category}) => {
-    const [checkedCat, setChecked] = useState({})
- const books = useSelector((state) => state.bookRdcr.books)
- const dispatch = useDispatch()
-
-
-useEffect(() => {
-
-    const fetchData = async() => {
- 
-        try {
-
-            await dispatch(BooksShow())
-
-            if(books && books.bookGenre) {
-
-                if(category._id) {
-                    books.forEach((book) => {
-                        if(book.bookGenre === category._id) setChecked(book)
-                    })
-                }
-                
-
-
-
-
-            }
-            
-        } catch (error) {
-            console.error(error)
-        }
-
-    }
-
-    fetchData()
-
-
-}, [dispatch, books, category._id])
-
-
-const deleteCategory = async(event) => {
-    event.preventDefault()
-
-
-}  
-
-
-    return(<>
-
-{category.genreName}
-  
-  
-  { checkedCat.bookGenre === category._id ? <p>HAS BOOKS </p>  :  <button
-             className="btn btn-danger"
-
-             onClick={deleteCategory}
-            
-           >
-             Delete
-           </button>   }
-
-    
-    
-    
-    </>)
-
-
-}
 
 export default ShowBookGenres

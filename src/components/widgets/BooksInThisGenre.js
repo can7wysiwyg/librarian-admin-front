@@ -1,82 +1,96 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { BookDelete, BooksShow } from "../../redux/actions/bookAction"
+import { useParams } from "react-router-dom"
+import { BookAccGenre, BookDelete } from "../../redux/actions/bookAction"
 import { Table, Button, OverlayTrigger, Tooltip, Modal, Form } from 'react-bootstrap';
 
 
-function ShowBooks() {
+function BooksInThisGenre() {
+    const {id} = useParams()
     const [currentPage, setCurrentPage] = useState(1);
     const [searchQuery, setSearchQuery] = useState('');
   
-    const dispatch = useDispatch()
-    const books = useSelector((state) => state.bookRdcr.books)
+     const bookGen = useSelector((state) => state.bookRdcr.bookGen)
+     const dispatch = useDispatch()
 
-    useEffect(() => {
-
+     useEffect(() => {
 
         const fetchData = async() => {
-           
+
             try {
 
-                await dispatch(BooksShow())
+                await dispatch(BookAccGenre(id))
                 
             } catch (error) {
                 console.error("there was a problem")
             }
+
 
         }
 
         fetchData()
 
 
-    }, [dispatch])
 
-    if(!books || books === undefined || books === null) {
+     }, [dispatch, id])
+
+     if(!bookGen) {
+
         return(<>
-        <h6 className="text-center" style={{marginTop: "2rem"}}>books are loading</h6>
+        <h6 className="text-center" style={{marginTop: "2rem"}}>data is loading</h6>
+        </>)
+     } 
+     
+     
+     const handleSearch = (e) => {
+        setSearchQuery(e.target.value);
+        setCurrentPage(1); // Reset to the first page when searching
+      };
+    
+      
+      const filteredBooks = bookGen?.filter((book) =>
+        book.bookTitle.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    
+      // Pagination calculations
+      const booksPerPage = 5;
+      const indexOfLastBook = currentPage * booksPerPage;
+      const indexOfFirstBook = indexOfLastBook - booksPerPage;
+      const currentBooks = filteredBooks?.slice(indexOfFirstBook, indexOfLastBook);
+    
+      // Change page
+      const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+      };
+    
+    
+  
+  
+  
+     
+     
+     
+     
+     
+     
+     
+     
+     if(bookGen && bookGen.length === 0) {
+
+        return(<>
+
+<h6 className="text-center" style={{marginTop: "2rem"}}>there are no books in this genre</h6>
+        
         
         </>)
-    }  
 
-    
-    const handleSearch = (e) => {
-      setSearchQuery(e.target.value);
-      setCurrentPage(1); // Reset to the first page when searching
-    };
-  
-    
-    const filteredBooks = books?.filter((book) =>
-      book.bookTitle.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-  
-    // Pagination calculations
-    const booksPerPage = 5;
-    const indexOfLastBook = currentPage * booksPerPage;
-    const indexOfFirstBook = indexOfLastBook - booksPerPage;
-    const currentBooks = filteredBooks?.slice(indexOfFirstBook, indexOfLastBook);
-  
-    // Change page
-    const handlePageChange = (pageNumber) => {
-      setCurrentPage(pageNumber);
-    };
-  
-  
-
-
-
-
-     if(books.length === 0) {
-        return(<>
-        <h6 className="text-center" style={{marginTop: "2rem"}}>there are no books! please add <a href="/upload_book">some</a></h6>
-        </>)
-    }
+     }
 
 
     
 
     return(<>
-
-<div style={{margin: "2rem"}}>
+    <div style={{margin: "2rem"}}>
       <Form.Group >
         <Form.Control
           type="text"
@@ -130,11 +144,11 @@ function ShowBooks() {
       </nav>
 
 
+
     
     
     </>)
 }
-
 
 
 const Buttons = ({book}) => {
@@ -212,4 +226,5 @@ const Buttons = ({book}) => {
 }
 
 
-export default ShowBooks
+
+export default BooksInThisGenre
