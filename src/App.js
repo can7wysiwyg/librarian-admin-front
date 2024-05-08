@@ -18,8 +18,10 @@ import BookPdfUpdate from "./components/librarian/BookPdfUpdate";
 import GenresPanel from "./components/librarian/GenresPanel";
 import ShowBookGenres from "./components/widgets/ShowBookGenres";
 import CreateGenre from "./components/librarian/CreateGenre";
-import GenreSingle from "./components/superAdmin/GenreSingle";
+import GenreSingle from "./components/widgets/GenreSingle";
 import BooksInThisGenre from "./components/widgets/BooksInThisGenre";
+import EditGenre from "./components/librarian/EditGenre";
+import EraseGenre from "./components/librarian/EraseGenre";
 
 
 function App() {
@@ -51,7 +53,8 @@ function App() {
         <Route path="/show_book_genres" element={<ShowBookGenres />} />
         <Route path="/genre_single/:id" element={<GenreSingle />} />
         <Route path="/books_in_this_genre/:id" element={<BooksInThisGenre />} />
-        
+        <Route path="/edit_genre/:id" element={<EditGenre />} />
+        <Route path="/delete_genre/:id" element={<EraseGenre />} />
 
         
         

@@ -1,5 +1,5 @@
 import axios from "axios"
-import { GENRE_CREATE, GENRE_ERROR, GET_GENRE, SHOW_GENRES } from "./types"
+import { EDIT_GENRE, ERADICATE_GENRE, GENRE_CREATE, GENRE_ERROR, GET_GENRE, SHOW_GENRES } from "./types"
 import { ApiUrl } from "../../helpers/ApiUrl"
 import { librarianToken } from "../../helpers/AdminsTokens"
 
@@ -70,4 +70,64 @@ export function SingleGenre(id) {
         }
 
     }
+}
+
+
+export function editGenre(id, data) {
+
+    return async function(dispatch) {
+
+        try {
+
+            const response = await axios.put(`${ApiUrl}/genre/edit_genre/${id}`, data, {
+                headers: {
+                    Authorization: `Bearer ${librarianToken}`
+                }
+            })
+
+            dispatch({type: EDIT_GENRE})
+            alert(response.data.msg)
+            window.location.href = `/genre_single/${id}`
+            
+        } catch (error) {
+
+            console.error(error)
+            dispatch({type: GENRE_ERROR})
+            throw error
+            
+        }
+
+    }
+
+}
+
+
+
+export function EradicateGenre(id) {
+
+    return async function(dispatch) {
+
+        try {
+
+            const response = await axios.delete(`${ApiUrl}/genre/delete_genre/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${librarianToken}`
+                }
+            })
+
+            dispatch({type: ERADICATE_GENRE})
+
+            alert(response.data.msg)
+            window.location.href = "/show_book_genres"
+            
+        } catch (error) {
+
+            console.error(error)
+            dispatch({type: GENRE_ERROR})
+            throw error
+            
+        }
+
+    }
+
 }
