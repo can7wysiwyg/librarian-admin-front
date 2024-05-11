@@ -3,6 +3,7 @@ import { librarianRdcr } from "./reducers/librarian_Reducer";
 import { mainadminRdcr } from "./reducers/mainadmin_Reducer";
 import { genreRdcr } from "./reducers/genre_Reducer";
 import { bookRdcr } from "./reducers/book_Reducer";
+import { tasksRdcr } from "./reducers/mainadmintasks_Reducer";
 
 
 export const store = configureStore({
@@ -10,7 +11,8 @@ export const store = configureStore({
         librarianRdcr,
         mainadminRdcr,
         genreRdcr,
-        bookRdcr
+        bookRdcr,
+        tasksRdcr
         
     
 

@@ -23,6 +23,7 @@ import BooksInThisGenre from "./components/widgets/BooksInThisGenre";
 import EditGenre from "./components/librarian/EditGenre";
 import EraseGenre from "./components/librarian/EraseGenre";
 import AdminPanel from "./components/superAdmin/AdminPanel";
+import CreateLibrarian from "./components/superAdmin/CreateLibrarian";
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
         <Route path="/edit_genre/:id" element={<EditGenre />} />
         <Route path="/delete_genre/:id" element={<EraseGenre />} />
         <Route path="/adminpanel" element={<AdminPanel />} />
+        <Route path="/create_librarian" element={<CreateLibrarian />} />
 
         
         

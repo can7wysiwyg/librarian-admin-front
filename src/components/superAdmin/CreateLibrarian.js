@@ -1,39 +1,43 @@
-import { useContext, useState } from "react"
-import { GlobalState } from "../../GlobalState"
+import {  useState } from "react"
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { MakeLibrarian } from "../../redux/actions/mainAdminTasksAction";
+
 
 
 function CreateLibrarian() {
-   const state = useContext(GlobalState)
-   const supertoken = state.supertoken
-   const[values, setValues] = useState({uniqueName: "", email: "", password: ""})
-
-   const handleChange = (event) => {
-    const { name, value } = event.target;
-    setValues({ ...values, [name]: value });
+   
+   const[formData, setFormData] = useState({uniqueName: "", email: "", password: ""})
+   const dispatch = useDispatch()
 
 
-}
+
+   const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+
+
+
+   }
+
+   
 
 const handleSubmit = async(event) => {
     event.preventDefault()
 
-    const res = await axios.post('/admin/register', {...values}, {
-        headers: {
-            Authorization: `Bearer ${supertoken}`
-        }
-    })
+    await dispatch(MakeLibrarian(formData))
 
-    alert(res.data.msg)
-    window.location.href = "/manage_librarian"
+
+    
 }
 
 
 
     return(<>
     <Container style={{marginTop: "4rem", fontFamily: "Times New Roman"}}>
-        <h4 className="text-center">Create Author</h4>
+        <h4 className="text-center">Create Librarian</h4>
         <Row className="justify-content-md-center">
           <Col xs={12} md={6}>
       
@@ -44,7 +48,7 @@ const handleSubmit = async(event) => {
                 <Form.Control
                   type="text"
                   name="uniqueName"
-                  value={ values.uniqueName }
+                  value={ formData.uniqueName }
                   onChange={handleChange}
 
                   placeholder="Unique Name"
@@ -59,7 +63,7 @@ const handleSubmit = async(event) => {
                 <Form.Control
                   type="text"
                   name="email"
-                  value={ values.email }
+                  value={ formData.email }
                   onChange={handleChange}
 
                   placeholder="email"
@@ -71,7 +75,7 @@ const handleSubmit = async(event) => {
               <Form.Control
                 type="text"
                 name="password"
-                value={values.password}
+                value={formData.password}
                 onChange={handleChange}
                 placeholder="password"
                 required

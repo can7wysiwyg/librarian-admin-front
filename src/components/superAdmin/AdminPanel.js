@@ -73,8 +73,8 @@ function AdminPanel() {
                     <circle cx="146" cy="46" r="2" fill="#FFFFFF" />
                 </svg>
             </div>
-            <h6 className="font-weight-bold mb-3">VIEW ADMIN</h6>
-            <p className="text-muted mb-0"><a href="/librarian_info">see librarian</a></p>
+            <h6 className="font-weight-bold mb-3">VIEW ADMIN LOGIN INFO</h6>
+            <p className="text-muted mb-0"><a href="/librarian_login_info">see librarian</a></p>
         </div>
     </div>
 </div>
