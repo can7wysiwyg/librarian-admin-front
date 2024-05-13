@@ -18,7 +18,7 @@ export function MakeLibrarian(data) {
             dispatch({type: MAIN_ADMIN_CREATE_LIBRARIAN})
 
             alert(response.data.msg)
-            window.location.href = '/librarian_login_info'
+            window.location.href = '/librarian_info'
 
             
         } catch (error) {

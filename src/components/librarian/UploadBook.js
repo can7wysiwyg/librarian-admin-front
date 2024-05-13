@@ -100,7 +100,7 @@ if(genres.length === 0) {
       <Row className="justify-content-md-center">
         <Col xs={12} md={6}>
 
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} encType="multipart/form-data">
 
         <Form.Group className="mb-3" controlId="formBasicBookImage">
               <Form.Label>Upload book image</Form.Label>
