@@ -25,6 +25,8 @@ import EraseGenre from "./components/librarian/EraseGenre";
 import AdminPanel from "./components/superAdmin/AdminPanel";
 import CreateLibrarian from "./components/superAdmin/CreateLibrarian";
 import LibrarianInfo from "./components/superAdmin/LibrarianInfo";
+import ShowUsers from "./components/users/ShowUsers";
+import ShowUser from "./components/users/ShowUser";
 
 
 function App() {
@@ -61,6 +63,9 @@ function App() {
         <Route path="/adminpanel" element={<AdminPanel />} />
         <Route path="/create_librarian" element={<CreateLibrarian />} />
         <Route path="/librarian_info" element={<LibrarianInfo />} />
+        <Route path="/users" element={<ShowUsers />} />
+        <Route path="/show_user/:id" element={<ShowUser />} />
+
 
         
         

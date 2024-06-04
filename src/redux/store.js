@@ -4,6 +4,7 @@ import { mainadminRdcr } from "./reducers/mainadmin_Reducer";
 import { genreRdcr } from "./reducers/genre_Reducer";
 import { bookRdcr } from "./reducers/book_Reducer";
 import { tasksRdcr } from "./reducers/mainadmintasks_Reducer";
+import { userRdcr } from "./reducers/user_Reducer";
 
 
 export const store = configureStore({
@@ -12,7 +13,8 @@ export const store = configureStore({
         mainadminRdcr,
         genreRdcr,
         bookRdcr,
-        tasksRdcr
+        tasksRdcr,
+        userRdcr
         
     
 
