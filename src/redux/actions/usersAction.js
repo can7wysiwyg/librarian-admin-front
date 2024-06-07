@@ -1,5 +1,5 @@
 import axios from "axios"
-import { SHOW_USER, SHOW_USERS, USER_ERROR } from "./types"
+import { SHOW_USER, SHOW_USERS, USER_BORROWED_BOOKS, USER_ERROR } from "./types"
 import { ApiUrl } from "../../helpers/ApiUrl"
 import { librarianToken } from "../../helpers/AdminsTokens"
 
@@ -54,4 +54,34 @@ export function getUser(id) {
         }
 
     }
+}
+
+
+export function userBorrowedBooks(id) {
+
+    return async function(dispatch) {
+
+        try {
+
+            const response = await axios.get(`${ApiUrl}/admincard/show_user_borrowed_books/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${librarianToken}`
+                }
+            })
+
+
+            const result = response.data.result
+
+            dispatch({type: USER_BORROWED_BOOKS, payload: result})
+
+            
+        } catch (error) {
+            console.error(error)
+            dispatch({type: USER_ERROR})
+            throw error
+            
+        }
+
+    }
+
 }

@@ -27,6 +27,7 @@ import CreateLibrarian from "./components/superAdmin/CreateLibrarian";
 import LibrarianInfo from "./components/superAdmin/LibrarianInfo";
 import ShowUsers from "./components/users/ShowUsers";
 import ShowUser from "./components/users/ShowUser";
+import UserBorrowedBooks from "./components/users/UserBorrowedBooks";
 
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
         <Route path="/librarian_info" element={<LibrarianInfo />} />
         <Route path="/users" element={<ShowUsers />} />
         <Route path="/show_user/:id" element={<ShowUser />} />
+        <Route path="/see_borrowed_books/:id" element={<UserBorrowedBooks />} />
 
 
         
