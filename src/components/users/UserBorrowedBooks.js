@@ -90,15 +90,7 @@ const ShowBookOne = ({BookOne}) => {
 
                 await dispatch(BooksShow())
 
-                if(BookOne) {
-
-                  let showItem = books?.find((book) => book._id === BookOne )
-            
-                  setResult(showItem)
-                   
-            
-                }
-            
+                
 
                 
                 
@@ -113,7 +105,23 @@ const ShowBookOne = ({BookOne}) => {
 
 
 
-    }, [dispatch, BookOne, books])
+    }, [dispatch])
+
+useEffect(() => {
+
+  if(books && BookOne) {
+
+    let showItem = books?.find((book) => book._id === BookOne )
+
+    setResult(showItem)
+     
+
+  }
+
+
+
+}, [books, BookOne])
+
 
     if( !books || !result || books === undefined || books === null || result === "") {
       return(<h1>as stuff loads</h1>)
@@ -177,15 +185,7 @@ const ShowBookOne = ({BookOne}) => {
             try {
 
                 await dispatch(BooksShow())
-                if(BookTwo) {
-
-                  let showItem = books?.find((book) => book._id === BookTwo )
-            
-                  setResult(showItem)
-                   
-            
-                }
-            
+                
 
                 
                 
@@ -200,7 +200,28 @@ const ShowBookOne = ({BookOne}) => {
 
 
 
-    }, [dispatch, BookTwo, books])
+    }, [dispatch])
+
+
+    useEffect(() => {
+
+
+      if( books && BookTwo) {
+
+        let showItem = books?.find((book) => book._id === BookTwo )
+  
+        setResult(showItem)
+         
+  
+      }
+  
+
+
+
+    }, [books, BookTwo])
+
+
+
 
     if( !books || !result || books === undefined || books === null || result === "") {
       return(<h1>as stuff loads</h1>)
@@ -268,15 +289,7 @@ const ShowBookOne = ({BookOne}) => {
 
                 await dispatch(BooksShow())
 
-                if(BookThree) {
-
-                  let showItem = books?.find((book) => book._id === BookThree )
-            
-                  setResult(showItem)
-                   
-            
-                }
-            
+                
                 
             
             
@@ -294,7 +307,24 @@ const ShowBookOne = ({BookOne}) => {
 
 
 
-    }, [dispatch, BookThree, books])
+    }, [dispatch])
+
+
+useEffect(() => {
+
+  if(books && BookThree) {
+
+    let showItem = books?.find((book) => book._id === BookThree )
+
+    setResult(showItem)
+     
+
+  }
+
+
+
+}, [books, BookThree])
+
 
     if( !books || !result || books === undefined || books === null || result === "") {
       return(<h1>as stuff loads</h1>)
