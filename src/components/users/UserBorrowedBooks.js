@@ -35,20 +35,14 @@ function UserBorrowedBooks() {
    }, [dispatch, id])
 
 
-   if(!result === "" || result === undefined || result === null) {
+   if(!result || result === undefined || result === null) {
     return(<>
     
-    <p className="text-center" style={{marginTop: "3rem"}}>data is loading</p>
+    <p className="text-center" style={{marginTop: "3rem"}}>if there is a blank screen like this for more tha a minute.. USER HAS NOT BORROWED ANY BOOKS!!!</p>
     </>)
   }
-  
 
-  if(result.length === 0) {
-    return(<>
-    
-    <p className="text-center" style={{marginTop: "3rem"}}>user has not borrowed any books</p>
-    </>)
-  }
+  
   
     return(<>
     <div style={{margin: "1rem", fontFamily: "fantasy"}}>

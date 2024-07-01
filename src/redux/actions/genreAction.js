@@ -1,5 +1,5 @@
 import axios from "axios"
-import { EDIT_GENRE, ERADICATE_GENRE, GENRE_CREATE, GENRE_ERROR, GET_GENRE, SHOW_GENRES } from "./types"
+import { CREATE_SUB_GENRE, EDIT_GENRE, ERADICATE_GENRE, GENRE_CREATE, GENRE_ERROR, GET_GENRE, SHOW_GENRES } from "./types"
 import { ApiUrl } from "../../helpers/ApiUrl"
 import { librarianToken } from "../../helpers/AdminsTokens"
 
@@ -25,6 +25,40 @@ export function GenreCreate(data) {
         }
 
     }
+}
+
+
+export function subGenreCreate(id, data) {
+
+    return async function(dispatch) {
+
+        try {
+
+            const response = await axios.put(`${ApiUrl}/genre/update_subgenre/${id}`, data, {
+                headers: {
+                    Authorization: `Bearer ${librarianToken}`
+
+                }
+            })
+
+            dispatch({type: CREATE_SUB_GENRE})
+            alert(response.data.msg)
+
+            window.location.href = "/subgenres"
+
+            
+        } catch (error) {
+
+            console.error(error)
+            dispatch({type: GENRE_ERROR})
+            throw error
+
+
+            
+        }
+
+    }
+
 }
 
 

@@ -22,6 +22,12 @@ function CreateGenre() {
     dispatch(GenreCreate(formData))
 
   }
+
+
+  console.log(formData.genreName)
+
+
+
     return(<>
      <Container style={{marginTop: "4rem", fontFamily: "Times New Roman"}}>
         <h4 className="text-center">Create Book Genre</h4>
@@ -30,9 +36,33 @@ function CreateGenre() {
       
             <Form onSubmit={handleSubmit}>
 
-            <Form.Group className="mb-3" controlId="formBasicGenreName">
+            <Form.Group className="mb-3" controlId="formBasicBookGenre">
+  <Form.Select
+    name="genreName"
+    value={formData.genreName}
+    onChange={handleInputChange}
+    required
+  >
+    <option value="" disabled>
+      Select a Book Genre
+    </option>
+    <option value="Fiction">
+      Fiction
+    </option>
+    <option value="Non-Fiction">
+      Non-Fiction
+    </option>
+  </Form.Select>
+</Form.Group>
+
+
+
+            
+
+
+            {/* <Form.Group className="mb-3" controlId="formBasicGenreName"> */}
                 
-                <Form.Control
+                {/* <Form.Control
                   type="text"
                   name="genreName"
                   value={formData.genreName }
@@ -41,7 +71,7 @@ function CreateGenre() {
                   placeholder="Book Genre"
                   required
                 />
-              </Form.Group>
+              </Form.Group> */}
 
               <Button type="submit">Create Genre</Button>
 

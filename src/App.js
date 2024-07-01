@@ -28,6 +28,8 @@ import LibrarianInfo from "./components/superAdmin/LibrarianInfo";
 import ShowUsers from "./components/users/ShowUsers";
 import ShowUser from "./components/users/ShowUser";
 import UserBorrowedBooks from "./components/users/UserBorrowedBooks";
+import CreateSubGenres from "./components/librarian/CreateSubGenres";
+import CreateSub from "./components/librarian/CreateSub";
 
 
 function App() {
@@ -67,6 +69,8 @@ function App() {
         <Route path="/users" element={<ShowUsers />} />
         <Route path="/show_user/:id" element={<ShowUser />} />
         <Route path="/see_borrowed_books/:id" element={<UserBorrowedBooks />} />
+        <Route path="/create_subgenres" element={<CreateSubGenres />} />
+        <Route path="/create_sub/:id" element={<CreateSub />} />
 
 
         
